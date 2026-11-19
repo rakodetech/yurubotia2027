@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demostración de Activación del Chatbot OESVICA</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+    h1 {
+      color: #1e3a8a;
+      margin-top: 0;
+    }
+    .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    pre {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 18px;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-size: 13px;
+    }
+    .btn-test {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .btn-test:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <span class="badge">Portal Web Externo (Demostración)</span>
+    <h1>Portal del Empleado OESVICA</h1>
+    <p>Esta página simula cualquier sitio web externo donde desees activar el chatbot. En la esquina inferior derecha verás el botón flotante del chatbot.</p>
+
+    <h3>Código para activar en tu propia página:</h3>
+    <pre><code>&lt;script type="text/javascript"&gt;
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.oesvicaChat.load({
+          serverUrl: window.location.origin, // o la URL de tu servidor
+          title: 'Atención al Trabajador OESVICA',
+          position: 'right'
+        });
+      };
+      v.src = '/interface/widget.js'; 
+      v.type = 'text/javascript'; 
+      s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+&lt;/script&gt;</code></pre>
+
+    <p>También puedes abrir o cerrar el chatbot programáticamente mediante JavaScript:</p>
+    <button class="btn-test" onclick="window.oesvicaChat.toggle()">Abrir / Cerrar Chatbot desde un botón</button>
+  </div>
+
+  <!-- SCRIPT QUE ACTIVA EL CHATBOT (ESTILO VOICEFLOW) -->
+  <script type="text/javascript">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+          window.oesvicaChat.load({
+            serverUrl: window.location.origin,
+            title: 'Atención al Trabajador OESVICA',
+            position: 'right',
+            themeColor: '#2563eb'
+          });
+        };
+        v.src = '/interface/widget.js'; 
+        v.type = 'text/javascript'; 
+        s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+  </script>
+
+</body>
+</html>

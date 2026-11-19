@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demostración de Activación del Chatbot OESVICA</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #0b132b;
+      color: #f1f5f9;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #1e293b;
+      padding: 36px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    h1 {
+      color: #60a5fa;
+      margin-top: 0;
+      font-size: 26px;
+    }
+    h2 {
+      font-size: 18px;
+      color: #93c5fd;
+      margin-top: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(37, 99, 235, 0.2);
+      color: #60a5fa;
+      border: 1px solid rgba(37, 99, 235, 0.4);
+      padding: 4px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    pre {
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 18px 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-size: 13px;
+      line-height: 1.5;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+    .btn {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: #334155;
+      color: #e2e8f0;
+      margin-left: 10px;
+    }
+    .btn-secondary:hover {
+      background: #475569;
+    }
+    .btn-copy {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #334155;
+      color: #e2e8f0;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-copy:hover {
+      background: #2563eb;
+      color: #ffffff;
+    }
+    .info-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-left: 4px solid #10b981;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 18px 0;
+      font-size: 14px;
+      color: #a7f3d0;
+    }
+    .steps {
+      padding-left: 20px;
+    }
+    .steps li {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <span class="badge">🌐 Demostración de Activación del Widget</span>
+    <h1>Portal de Pruebas Web OESVICA</h1>
+    <p>Esta página simula cualquier sitio web externo (HTML, WordPress, PHP, Drupal, Intranet, etc.) donde se desee integrar el asistente virtual OESVICA.</p>
+
+    <div class="info-box">
+      <strong>✓ Activación Exitosa:</strong> Observa en la esquina inferior derecha el botón flotante circular azul del chatbot. Al hacer clic, se abre automáticamente la ventana de atención al trabajador sin errores de CORS ni bloqueos de seguridad.
+    </div>
+
+    <h2>Opción 1: Etiqueta Simple de 1 Línea (Recomendada)</h2>
+    <p>Pega esta única línea justo antes del cierre de <code>&lt;/body&gt;</code> en cualquier página web:</p>
+    <div style="position: relative;">
+      <button class="btn-copy" onclick="copySnippet('snippet-simple')">Copiar</button>
+      <pre><code id="snippet-simple">&lt;!-- Widget Chatbot OESVICA --&gt;
+&lt;script src="SERVER_URL/widget.js" async&gt;&lt;/script&gt;</code></pre>
+    </div>
+
+    <h2>Opción 2: Snippet Asíncrono Personalizable</h2>
+    <p>Para mayor compatibilidad con WordPress, Google Tag Manager o si deseas cambiar la posición (ej: izquierda) o el color del tema:</p>
+    <div style="position: relative;">
+      <button class="btn-copy" onclick="copySnippet('snippet-async')">Copiar</button>
+      <pre><code id="snippet-async">&lt;!-- Snippet Asíncrono Chatbot OESVICA --&gt;
+&lt;script type="text/javascript"&gt;
+  (function(d, t) {
+    var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    v.onload = function() {
+      window.oesvicaChat.load({
+        serverUrl: 'SERVER_URL',
+        title: 'Atención al Trabajador OESVICA',
+        position: 'right', // 'right' o 'left'
+        themeColor: '#2563eb'
+      });
+    };
+    v.src = 'SERVER_URL/widget.js';
+    v.type = 'text/javascript';
+    v.async = true;
+    s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+&lt;/script&gt;</code></pre>
+    </div>
+
+    <h2>Control Programático desde Botones</h2>
+    <p>Puedes abrir, cerrar o alternar el chatbot desde cualquier enlace o botón existente en tu sitio web:</p>
+    <div style="margin-top: 14px;">
+      <button class="btn" onclick="window.oesvicaChat.toggle()">
+        <span>💬</span> Abrir / Cerrar Chatbot
+      </button>
+      <button class="btn btn-secondary" onclick="window.oesvicaChat.open()">
+        Abrir Ventana
+      </button>
+      <button class="btn btn-secondary" onclick="window.oesvicaChat.close()">
+        Cerrar Ventana
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Reemplazar dinámicamente SERVER_URL con el origen real actual
+    var origin = window.location.origin;
+    var simpleCode = document.getElementById('snippet-simple');
+    if (simpleCode) {
+      simpleCode.textContent = '<!-- Widget Chatbot OESVICA -->\n<script src="' + origin + '/widget.js" async><\/script>';
+    }
+
+    var asyncCode = document.getElementById('snippet-async');
+    if (asyncCode) {
+      asyncCode.textContent = [
+        '<!-- Snippet Asíncrono Chatbot OESVICA -->',
+        '<script type="text/javascript">',
+        '  (function(d, t) {',
+        '    var v = d.createElement(t), s = d.getElementsByTagName(t)[0];',
+        '    v.onload = function() {',
+        '      window.oesvicaChat.load({',
+        '        serverUrl: \'' + origin + '\',',
+        '        title: \'Atención al Trabajador OESVICA\',',
+        '        position: \'right\',',
+        '        themeColor: \'#2563eb\'',
+        '      });',
+        '    };',
+        '    v.src = \'' + origin + '/widget.js\';',
+        '    v.type = \'text/javascript\';',
+        '    v.async = true;',
+        '    s.parentNode.insertBefore(v, s);',
+        '  })(document, \'script\');',
+        '<\/script>'
+      ].join('\n');
+    }
+
+    function copySnippet(elementId) {
+      var el = document.getElementById(elementId);
+      if (!el) return;
+      var text = el.textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        alert('¡Código copiado al portapapeles!');
+      }).catch(function() {
+        var textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('¡Código copiado al portapapeles!');
+      });
+    }
+  </script>
+
+  <!-- CARGA REAL DEL WIDGET EN ESTA PÁGINA DE DEMOSTRACIÓN -->
+  <script src="/widget.js" async></script>
+
+</body>
+</html>

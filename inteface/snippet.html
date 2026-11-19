@@ -1,0 +1,27 @@
+<!--
+=================================================================================
+  CÓDIGO DE INTEGRACIÓN PARA CUALQUIER PÁGINA WEB (ESTILO VOICEFLOW)
+  Copia y pega este bloque <script> antes del cierre de la etiqueta </body>
+  en cualquier página (WordPress, HTML, PHP, Laravel, React, Angular, etc.)
+=================================================================================
+-->
+
+<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.oesvicaChat.load({
+          // Coloca aquí la URL donde esté alojado el chatbot en tu servidor
+          serverUrl: 'https://ais-dev-7pwb7do4g6ftyewwkyqmiz-417075059177.us-east1.run.app',
+          title: 'Atención al Trabajador OESVICA',
+          position: 'right', // 'right' o 'left'
+          themeColor: '#2563eb', // Color del botón flotante
+          autoOpen: false // true si deseas que se abra automáticamente al entrar
+        });
+      };
+      // Ruta al script widget.js en tu servidor
+      v.src = 'https://ais-dev-7pwb7do4g6ftyewwkyqmiz-417075059177.us-east1.run.app/interface/widget.js'; 
+      v.type = 'text/javascript'; 
+      s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>

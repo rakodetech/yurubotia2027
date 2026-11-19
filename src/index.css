@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Hide scrollbar for clean Ionic tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* High fidelity Print Rules for Official Documents (Recibos, Carta de Trabajo, Forma 14-100 IVSS) */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-document-sheet,
+  #printable-document-sheet * {
+    visibility: visible;
+  }
+  #printable-document-sheet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: white !important;
+    color: black !important;
+  }
+}

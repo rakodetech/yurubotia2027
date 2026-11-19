@@ -1,0 +1,6 @@
+{
+  "name": "Chatbot de Atención al Trabajador - Ionic RRHH",
+  "description": "Asistente virtual conversacional para trabajadores OESVICA: verificación de ficha carnet, Recibos de pagos, Carta de Trabajo, Cesta Ticket y Forma14100.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
